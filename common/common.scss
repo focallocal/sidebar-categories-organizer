@@ -1,0 +1,107 @@
+// Custom Categories Sidebar Organizer Styles
+
+@if $enable-sidebar-organizer {
+  
+  #custom-categories-sidebar {
+    .sidebar-section {
+      margin-bottom: 1em;
+    }
+
+    .category-section-details {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .category-section-summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 0.75em 1em;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      user-select: none;
+      
+      &::-webkit-details-marker {
+        display: none;
+      }
+      
+      &::marker {
+        display: none;
+      }
+
+      // Add arrow indicator
+      &::before {
+        content: "▶";
+        display: inline-block;
+        margin-right: 0.5em;
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
+
+    details[open] .category-section-summary::before {
+      transform: rotate(90deg);
+    }
+
+    // Section colors using CSS custom properties
+    .category-section-summary[data-section="1"] {
+      background: $section-1-bg-color;
+      color: $section-1-text-color;
+    }
+    
+    .category-section-summary[data-section="2"] {
+      background: $section-2-bg-color;
+      color: $section-2-text-color;
+    }
+    
+    .category-section-summary[data-section="3"] {
+      background: $section-3-bg-color;
+      color: $section-3-text-color;
+    }
+    
+    .category-section-summary[data-section="4"] {
+      background: $section-4-bg-color;
+      color: $section-4-text-color;
+    }
+
+    .category-section-content {
+      padding: 0.5em 0 0.5em 1.5em;
+      
+      .sidebar-section-link {
+        display: block;
+        padding: 0.5em 0.75em;
+        margin: 0.25em 0;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background 0.2s ease;
+        
+        &:hover {
+          background: var(--d-hover);
+        }
+        
+        .sidebar-section-link-content-text {
+          color: var(--primary);
+        }
+      }
+    }
+  }
+
+  #sidebar-categories-toggle {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 0.25em 0.5em;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: var(--d-hover);
+    }
+  }
+}

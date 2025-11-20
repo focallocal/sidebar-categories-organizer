@@ -1,0 +1,142 @@
+# Global Settings
+enable_sidebar_organizer:
+  default: true
+  type: bool
+  description: "Enable custom category sections in sidebar"
+
+show_toggle_button:
+  default: true
+  type: bool
+  description: "Show toggle button to switch between custom/default view"
+
+default_view:
+  default: "custom"
+  type: enum
+  choices:
+    - custom
+    - default
+  description: "Which view to show by default (custom sections or default categories list)"
+
+# Section 1
+section_1_enabled:
+  default: true
+  type: bool
+  description: "Enable section 1"
+
+section_1_title:
+  default: "Primary"
+  type: string
+  description: "Title for section 1"
+
+section_1_bg_color:
+  default: "#4285F4"
+  type: string
+  description: "Background color for section 1"
+
+section_1_text_color:
+  default: "#FFFFFF"
+  type: string
+  description: "Text color for section 1"
+
+section_1_categories:
+  default: ""
+  type: list
+  description: "Category slugs for section 1 (comma-separated, e.g., general,support,feedback)"
+
+section_1_default_open:
+  default: true
+  type: bool
+  description: "Section 1 open by default"
+
+# Section 2
+section_2_enabled:
+  default: true
+  type: bool
+  description: "Enable section 2"
+
+section_2_title:
+  default: "Secondary"
+  type: string
+  description: "Title for section 2"
+
+section_2_bg_color:
+  default: "#34A853"
+  type: string
+  description: "Background color for section 2"
+
+section_2_text_color:
+  default: "#FFFFFF"
+  type: string
+  description: "Text color for section 2"
+
+section_2_categories:
+  default: ""
+  type: list
+  description: "Category slugs for section 2 (comma-separated)"
+
+section_2_default_open:
+  default: false
+  type: bool
+  description: "Section 2 open by default"
+
+# Section 3
+section_3_enabled:
+  default: false
+  type: bool
+  description: "Enable section 3"
+
+section_3_title:
+  default: "Community"
+  type: string
+  description: "Title for section 3"
+
+section_3_bg_color:
+  default: "#FBBC04"
+  type: string
+  description: "Background color for section 3"
+
+section_3_text_color:
+  default: "#000000"
+  type: string
+  description: "Text color for section 3"
+
+section_3_categories:
+  default: ""
+  type: list
+  description: "Category slugs for section 3 (comma-separated)"
+
+section_3_default_open:
+  default: false
+  type: bool
+  description: "Section 3 open by default"
+
+# Section 4
+section_4_enabled:
+  default: false
+  type: bool
+  description: "Enable section 4"
+
+section_4_title:
+  default: "Resources"
+  type: string
+  description: "Title for section 4"
+
+section_4_bg_color:
+  default: "#EA4335"
+  type: string
+  description: "Background color for section 4"
+
+section_4_text_color:
+  default: "#FFFFFF"
+  type: string
+  description: "Text color for section 4"
+
+section_4_categories:
+  default: ""
+  type: list
+  description: "Category slugs for section 4 (comma-separated)"
+
+section_4_default_open:
+  default: false
+  type: bool
+  description: "Section 4 open by default"
