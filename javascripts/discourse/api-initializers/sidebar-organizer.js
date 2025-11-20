@@ -112,6 +112,38 @@ export default apiInitializer("1.8.0", (api) => {
         
         categoryLink.appendChild(linkContent);
         contentWrapper.appendChild(categoryLink);
+
+        // Add subcategories if enabled
+        if (settings.show_subcategories) {
+          const subcategories = accessibleCategories.filter(cat => 
+            cat.parent_category_id === category.id
+          );
+
+          subcategories.forEach(subcat => {
+            groupedCategorySlugs.add(subcat.slug);
+            
+            const subcatLink = document.createElement("a");
+            subcatLink.href = `/c/${category.slug}/${subcat.slug}/${subcat.id}`;
+            subcatLink.className = "sidebar-section-link sidebar-section-link-content-list subcategory-link";
+            
+            const subcatLinkContent = document.createElement("span");
+            subcatLinkContent.className = "sidebar-section-link-content-text";
+            
+            // Add subcategory badge if enabled
+            if (settings.show_category_badges) {
+              const subcatBadge = document.createElement("span");
+              subcatBadge.className = "category-badge";
+              subcatBadge.style.backgroundColor = `#${subcat.color}`;
+              subcatLinkContent.appendChild(subcatBadge);
+            }
+            
+            const subcatName = document.createTextNode(subcat.name);
+            subcatLinkContent.appendChild(subcatName);
+            
+            subcatLink.appendChild(subcatLinkContent);
+            contentWrapper.appendChild(subcatLink);
+          });
+        }
       });
 
       sectionHeader.appendChild(summary);
@@ -156,6 +188,36 @@ export default apiInitializer("1.8.0", (api) => {
         
         categoryLink.appendChild(linkContent);
         ungroupedSection.appendChild(categoryLink);
+
+        // Add subcategories if enabled
+        if (settings.show_subcategories) {
+          const subcategories = accessibleCategories.filter(cat => 
+            cat.parent_category_id === category.id
+          );
+
+          subcategories.forEach(subcat => {
+            const subcatLink = document.createElement("a");
+            subcatLink.href = `/c/${category.slug}/${subcat.slug}/${subcat.id}`;
+            subcatLink.className = "sidebar-section-link sidebar-section-link-content-list subcategory-link";
+            
+            const subcatLinkContent = document.createElement("span");
+            subcatLinkContent.className = "sidebar-section-link-content-text";
+            
+            // Add subcategory badge if enabled
+            if (settings.show_category_badges) {
+              const subcatBadge = document.createElement("span");
+              subcatBadge.className = "category-badge";
+              subcatBadge.style.backgroundColor = `#${subcat.color}`;
+              subcatLinkContent.appendChild(subcatBadge);
+            }
+            
+            const subcatName = document.createTextNode(subcat.name);
+            subcatLinkContent.appendChild(subcatName);
+            
+            subcatLink.appendChild(subcatLinkContent);
+            ungroupedSection.appendChild(subcatLink);
+          });
+        }
       });
 
       customContainer.appendChild(ungroupedSection);
