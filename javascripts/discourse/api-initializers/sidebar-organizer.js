@@ -313,14 +313,36 @@ export default apiInitializer("1.8.0", (api) => {
         existingToggle.remove();
       }
 
-      // Find the target location for toggle button
-      const categoriesHeader = defaultCategoriesSection.querySelector(".sidebar-section-header");
+      // Try multiple selectors for the categories header
+      let categoriesHeader = defaultCategoriesSection.querySelector(".sidebar-section-header");
+      
+      // Fallback: create a header if it doesn't exist
+      if (!categoriesHeader) {
+        categoriesHeader = defaultCategoriesSection.querySelector(".sidebar-section-header-wrapper");
+      }
+      
+      // Last resort: add to the section itself
+      if (!categoriesHeader) {
+        const headerWrapper = document.createElement("div");
+        headerWrapper.className = "sidebar-section-header-wrapper";
+        headerWrapper.style.cssText = "display: flex; align-items: center; padding: 0.5em 1em; justify-content: space-between;";
+        
+        const titleSpan = document.createElement("span");
+        titleSpan.textContent = "Categories";
+        titleSpan.style.fontWeight = "600";
+        headerWrapper.appendChild(titleSpan);
+        
+        defaultCategoriesSection.insertBefore(headerWrapper, defaultCategoriesSection.firstChild);
+        categoriesHeader = headerWrapper;
+      }
+
       if (categoriesHeader) {
         const toggleButton = document.createElement("button");
         toggleButton.id = "sidebar-categories-toggle";
-        toggleButton.className = "sidebar-section-header-button";
+        toggleButton.className = "sidebar-section-header-button btn-flat";
         toggleButton.innerHTML = "⚙️";
         toggleButton.title = "Toggle custom/default categories view";
+        toggleButton.style.cssText = "margin-left: auto; padding: 0.25em 0.5em; background: transparent; border: none; cursor: pointer; font-size: 1.2em;";
         toggleButton.addEventListener("click", (e) => {
           e.preventDefault();
           e.stopPropagation();
