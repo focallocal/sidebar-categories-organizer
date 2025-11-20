@@ -185,58 +185,87 @@ export default apiInitializer("1.8.0", (api) => {
   // Initialize on page change
   api.onPageChange(() => {
     schedule("afterRender", () => {
+      initializeSidebar();
+    });
+  });
+
+  // Watch for sidebar visibility changes (when user toggles sidebar)
+  const observer = new MutationObserver(() => {
+    schedule("afterRender", () => {
       const sidebar = document.querySelector(".sidebar-sections");
-      const defaultCategoriesSection = document.querySelector(".sidebar-section[data-section-name='categories']");
-      
-      if (!sidebar || !defaultCategoriesSection) return;
-
-      // Remove existing custom view if present
-      const existingCustomView = document.getElementById("custom-categories-sidebar");
-      if (existingCustomView) {
-        existingCustomView.remove();
-      }
-
-      // Build and insert custom view
-      const customView = buildCustomCategoriesView();
-      if (!customView) return;
-
-      // Insert after the categories section
-      defaultCategoriesSection.parentNode.insertBefore(customView, defaultCategoriesSection.nextSibling);
-
-      // Apply user preference
-      const preference = getUserPreference();
-      if (preference === "custom") {
-        defaultCategoriesSection.style.display = "none";
-        customView.style.display = "block";
-      } else {
-        defaultCategoriesSection.style.display = "block";
-        customView.style.display = "none";
-      }
-
-      // Add toggle button if enabled
-      if (settings.show_toggle_button) {
-        const existingToggle = document.getElementById("sidebar-categories-toggle");
-        if (existingToggle) {
-          existingToggle.remove();
-        }
-
-        // Find the target location for toggle button
-        const categoriesHeader = defaultCategoriesSection.querySelector(".sidebar-section-header");
-        if (categoriesHeader) {
-          const toggleButton = document.createElement("button");
-          toggleButton.id = "sidebar-categories-toggle";
-          toggleButton.className = "sidebar-section-header-button";
-          toggleButton.innerHTML = "⚙️";
-          toggleButton.title = "Toggle custom/default categories view";
-          toggleButton.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleView();
-          });
-
-          categoriesHeader.appendChild(toggleButton);
+      if (sidebar && sidebar.offsetParent !== null) {
+        // Sidebar is visible, reinitialize if needed
+        const existingCustomView = document.getElementById("custom-categories-sidebar");
+        if (!existingCustomView) {
+          initializeSidebar();
         }
       }
     });
   });
+
+  // Start observing the body for sidebar changes
+  schedule("afterRender", () => {
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class', 'style']
+    });
+  });
+
+  // Function to initialize/reinitialize sidebar
+  function initializeSidebar() {
+    const sidebar = document.querySelector(".sidebar-sections");
+    const defaultCategoriesSection = document.querySelector(".sidebar-section[data-section-name='categories']");
+    
+    if (!sidebar || !defaultCategoriesSection) return;
+
+    // Remove existing custom view if present
+    const existingCustomView = document.getElementById("custom-categories-sidebar");
+    if (existingCustomView) {
+      existingCustomView.remove();
+    }
+
+    // Build and insert custom view
+    const customView = buildCustomCategoriesView();
+    if (!customView) return;
+
+    // Insert after the categories section
+    defaultCategoriesSection.parentNode.insertBefore(customView, defaultCategoriesSection.nextSibling);
+
+    // Apply user preference
+    const preference = getUserPreference();
+    if (preference === "custom") {
+      defaultCategoriesSection.style.display = "none";
+      customView.style.display = "block";
+    } else {
+      defaultCategoriesSection.style.display = "block";
+      customView.style.display = "none";
+    }
+
+    // Add toggle button if enabled
+    if (settings.show_toggle_button) {
+      const existingToggle = document.getElementById("sidebar-categories-toggle");
+      if (existingToggle) {
+        existingToggle.remove();
+      }
+
+      // Find the target location for toggle button
+      const categoriesHeader = defaultCategoriesSection.querySelector(".sidebar-section-header");
+      if (categoriesHeader) {
+        const toggleButton = document.createElement("button");
+        toggleButton.id = "sidebar-categories-toggle";
+        toggleButton.className = "sidebar-section-header-button";
+        toggleButton.innerHTML = "⚙️";
+        toggleButton.title = "Toggle custom/default categories view";
+        toggleButton.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleView();
+        });
+
+        categoriesHeader.appendChild(toggleButton);
+      }
+    }
+  }
 });
