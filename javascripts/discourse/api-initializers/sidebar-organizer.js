@@ -41,8 +41,8 @@ export default apiInitializer("1.8.0", (api) => {
     // Track which categories are in groups
     const groupedCategorySlugs = new Set();
 
-    // Build sections 1-4
-    for (let i = 1; i <= 4; i++) {
+    // Build sections 1-10
+    for (let i = 1; i <= 10; i++) {
       const enabled = settings[`section_${i}_enabled`];
       if (!enabled) continue;
 

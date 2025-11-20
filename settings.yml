@@ -145,3 +145,189 @@ section_4_default_open:
   default: false
   type: bool
   description: "Section 4 open by default"
+
+# Section 5
+section_5_enabled:
+  default: false
+  type: bool
+  description: "Enable section 5"
+
+section_5_title:
+  default: "Section 5"
+  type: string
+  description: "Title for section 5"
+
+section_5_bg_color:
+  default: "#9C27B0"
+  type: string
+  description: "Background color for section 5"
+
+section_5_text_color:
+  default: "#FFFFFF"
+  type: string
+  description: "Text color for section 5"
+
+section_5_categories:
+  default: ""
+  type: string
+  description: "Category slugs for section 5 (comma-separated)"
+
+section_5_default_open:
+  default: false
+  type: bool
+  description: "Section 5 open by default"
+
+# Section 6
+section_6_enabled:
+  default: false
+  type: bool
+  description: "Enable section 6"
+
+section_6_title:
+  default: "Section 6"
+  type: string
+  description: "Title for section 6"
+
+section_6_bg_color:
+  default: "#FF9800"
+  type: string
+  description: "Background color for section 6"
+
+section_6_text_color:
+  default: "#FFFFFF"
+  type: string
+  description: "Text color for section 6"
+
+section_6_categories:
+  default: ""
+  type: string
+  description: "Category slugs for section 6 (comma-separated)"
+
+section_6_default_open:
+  default: false
+  type: bool
+  description: "Section 6 open by default"
+
+# Section 7
+section_7_enabled:
+  default: false
+  type: bool
+  description: "Enable section 7"
+
+section_7_title:
+  default: "Section 7"
+  type: string
+  description: "Title for section 7"
+
+section_7_bg_color:
+  default: "#00BCD4"
+  type: string
+  description: "Background color for section 7"
+
+section_7_text_color:
+  default: "#FFFFFF"
+  type: string
+  description: "Text color for section 7"
+
+section_7_categories:
+  default: ""
+  type: string
+  description: "Category slugs for section 7 (comma-separated)"
+
+section_7_default_open:
+  default: false
+  type: bool
+  description: "Section 7 open by default"
+
+# Section 8
+section_8_enabled:
+  default: false
+  type: bool
+  description: "Enable section 8"
+
+section_8_title:
+  default: "Section 8"
+  type: string
+  description: "Title for section 8"
+
+section_8_bg_color:
+  default: "#8BC34A"
+  type: string
+  description: "Background color for section 8"
+
+section_8_text_color:
+  default: "#FFFFFF"
+  type: string
+  description: "Text color for section 8"
+
+section_8_categories:
+  default: ""
+  type: string
+  description: "Category slugs for section 8 (comma-separated)"
+
+section_8_default_open:
+  default: false
+  type: bool
+  description: "Section 8 open by default"
+
+# Section 9
+section_9_enabled:
+  default: false
+  type: bool
+  description: "Enable section 9"
+
+section_9_title:
+  default: "Section 9"
+  type: string
+  description: "Title for section 9"
+
+section_9_bg_color:
+  default: "#FF5722"
+  type: string
+  description: "Background color for section 9"
+
+section_9_text_color:
+  default: "#FFFFFF"
+  type: string
+  description: "Text color for section 9"
+
+section_9_categories:
+  default: ""
+  type: string
+  description: "Category slugs for section 9 (comma-separated)"
+
+section_9_default_open:
+  default: false
+  type: bool
+  description: "Section 9 open by default"
+
+# Section 10
+section_10_enabled:
+  default: false
+  type: bool
+  description: "Enable section 10"
+
+section_10_title:
+  default: "Section 10"
+  type: string
+  description: "Title for section 10"
+
+section_10_bg_color:
+  default: "#607D8B"
+  type: string
+  description: "Background color for section 10"
+
+section_10_text_color:
+  default: "#FFFFFF"
+  type: string
+  description: "Text color for section 10"
+
+section_10_categories:
+  default: ""
+  type: string
+  description: "Category slugs for section 10 (comma-separated)"
+
+section_10_default_open:
+  default: false
+  type: bool
+  description: "Section 10 open by default"
