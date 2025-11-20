@@ -47,84 +47,166 @@
       transform: rotate(90deg);
     }
 
-    // Section colors with gradient fade to transparent (solid 25%, fade 25-75%)
-    .category-section-summary[data-section="1"] {
-      background: linear-gradient(to right, $section-1-bg-color 0%, $section-1-bg-color 25%, transparent 75%);
-      
-      .category-section-title {
-        color: $section-1-text-color;
+    // Section colors with optional gradient fade
+    @if $use-gradient-fade {
+      .category-section-summary[data-section="1"] {
+        background: linear-gradient(to right, $section-1-bg-color 0%, $section-1-bg-color 50%, transparent 100%);
+        
+        .category-section-title {
+          color: $section-1-text-color;
+        }
       }
-    }
-    
-    .category-section-summary[data-section="2"] {
-      background: linear-gradient(to right, $section-2-bg-color 0%, $section-2-bg-color 25%, transparent 75%);
       
-      .category-section-title {
-        color: $section-2-text-color;
+      .category-section-summary[data-section="2"] {
+        background: linear-gradient(to right, $section-2-bg-color 0%, $section-2-bg-color 50%, transparent 100%);
+        
+        .category-section-title {
+          color: $section-2-text-color;
+        }
       }
-    }
-    
-    .category-section-summary[data-section="3"] {
-      background: linear-gradient(to right, $section-3-bg-color 0%, $section-3-bg-color 25%, transparent 75%);
       
-      .category-section-title {
-        color: $section-3-text-color;
+      .category-section-summary[data-section="3"] {
+        background: linear-gradient(to right, $section-3-bg-color 0%, $section-3-bg-color 50%, transparent 100%);
+        
+        .category-section-title {
+          color: $section-3-text-color;
+        }
       }
-    }
-    
-    .category-section-summary[data-section="4"] {
-      background: linear-gradient(to right, $section-4-bg-color 0%, $section-4-bg-color 25%, transparent 75%);
       
-      .category-section-title {
-        color: $section-4-text-color;
+      .category-section-summary[data-section="4"] {
+        background: linear-gradient(to right, $section-4-bg-color 0%, $section-4-bg-color 50%, transparent 100%);
+        
+        .category-section-title {
+          color: $section-4-text-color;
+        }
       }
-    }
 
-    .category-section-summary[data-section="5"] {
-      background: linear-gradient(to right, $section-5-bg-color 0%, $section-5-bg-color 25%, transparent 75%);
-      
-      .category-section-title {
-        color: $section-5-text-color;
+      .category-section-summary[data-section="5"] {
+        background: linear-gradient(to right, $section-5-bg-color 0%, $section-5-bg-color 50%, transparent 100%);
+        
+        .category-section-title {
+          color: $section-5-text-color;
+        }
       }
-    }
 
-    .category-section-summary[data-section="6"] {
-      background: linear-gradient(to right, $section-6-bg-color 0%, $section-6-bg-color 25%, transparent 75%);
-      
-      .category-section-title {
-        color: $section-6-text-color;
+      .category-section-summary[data-section="6"] {
+        background: linear-gradient(to right, $section-6-bg-color 0%, $section-6-bg-color 50%, transparent 100%);
+        
+        .category-section-title {
+          color: $section-6-text-color;
+        }
       }
-    }
 
-    .category-section-summary[data-section="7"] {
-      background: linear-gradient(to right, $section-7-bg-color 0%, $section-7-bg-color 25%, transparent 75%);
-      
-      .category-section-title {
-        color: $section-7-text-color;
+      .category-section-summary[data-section="7"] {
+        background: linear-gradient(to right, $section-7-bg-color 0%, $section-7-bg-color 50%, transparent 100%);
+        
+        .category-section-title {
+          color: $section-7-text-color;
+        }
       }
-    }
 
-    .category-section-summary[data-section="8"] {
-      background: linear-gradient(to right, $section-8-bg-color 0%, $section-8-bg-color 25%, transparent 75%);
-      
-      .category-section-title {
-        color: $section-8-text-color;
+      .category-section-summary[data-section="8"] {
+        background: linear-gradient(to right, $section-8-bg-color 0%, $section-8-bg-color 50%, transparent 100%);
+        
+        .category-section-title {
+          color: $section-8-text-color;
+        }
       }
-    }
 
-    .category-section-summary[data-section="9"] {
-      background: linear-gradient(to right, $section-9-bg-color 0%, $section-9-bg-color 25%, transparent 75%);
-      
-      .category-section-title {
-        color: $section-9-text-color;
+      .category-section-summary[data-section="9"] {
+        background: linear-gradient(to right, $section-9-bg-color 0%, $section-9-bg-color 50%, transparent 100%);
+        
+        .category-section-title {
+          color: $section-9-text-color;
+        }
       }
-    }
 
-    .category-section-summary[data-section="10"] {
-      background: linear-gradient(to right, $section-10-bg-color 0%, $section-10-bg-color 25%, transparent 75%);
+      .category-section-summary[data-section="10"] {
+        background: linear-gradient(to right, $section-10-bg-color 0%, $section-10-bg-color 50%, transparent 100%);
+        
+        .category-section-title {
+          color: $section-10-text-color;
+        }
+      }
+    } @else {
+      .category-section-summary[data-section="1"] {
+        background: $section-1-bg-color;
+        
+        .category-section-title {
+          color: $section-1-text-color;
+        }
+      }
       
-      .category-section-title {
-        color: $section-10-text-color;
+      .category-section-summary[data-section="2"] {
+        background: $section-2-bg-color;
+        
+        .category-section-title {
+          color: $section-2-text-color;
+        }
+      }
+      
+      .category-section-summary[data-section="3"] {
+        background: $section-3-bg-color;
+        
+        .category-section-title {
+          color: $section-3-text-color;
+        }
+      }
+      
+      .category-section-summary[data-section="4"] {
+        background: $section-4-bg-color;
+        
+        .category-section-title {
+          color: $section-4-text-color;
+        }
+      }
+
+      .category-section-summary[data-section="5"] {
+        background: $section-5-bg-color;
+        
+        .category-section-title {
+          color: $section-5-text-color;
+        }
+      }
+
+      .category-section-summary[data-section="6"] {
+        background: $section-6-bg-color;
+        
+        .category-section-title {
+          color: $section-6-text-color;
+        }
+      }
+
+      .category-section-summary[data-section="7"] {
+        background: $section-7-bg-color;
+        
+        .category-section-title {
+          color: $section-7-text-color;
+        }
+      }
+
+      .category-section-summary[data-section="8"] {
+        background: $section-8-bg-color;
+        
+        .category-section-title {
+          color: $section-8-text-color;
+        }
+      }
+
+      .category-section-summary[data-section="9"] {
+        background: $section-9-bg-color;
+        
+        .category-section-title {
+          color: $section-9-text-color;
+        }
+      }
+
+      .category-section-summary[data-section="10"] {
+        background: $section-10-bg-color;
+        
+        .category-section-title {
+          color: $section-10-text-color;
+        }
       }
     }
 

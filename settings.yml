@@ -14,6 +14,11 @@ show_category_badges:
   type: bool
   description: "Show colored badges next to category names"
 
+use_gradient_fade:
+  default: false
+  type: bool
+  description: "Use gradient fade on section headers (solid color if disabled)"
+
 default_view:
   default: "custom"
   type: enum
