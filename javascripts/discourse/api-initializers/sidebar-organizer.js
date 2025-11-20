@@ -38,6 +38,9 @@ export default apiInitializer("1.8.0", (api) => {
     customContainer.id = "custom-categories-sidebar";
     customContainer.className = "sidebar-section-wrapper";
 
+    // Track which categories are in groups
+    const groupedCategorySlugs = new Set();
+
     // Build sections 1-4
     for (let i = 1; i <= 4; i++) {
       const enabled = settings[`section_${i}_enabled`];
@@ -56,6 +59,9 @@ export default apiInitializer("1.8.0", (api) => {
         .filter(Boolean);
 
       if (sectionCategories.length === 0) continue;
+
+      // Track these categories as grouped
+      sectionCategories.forEach(cat => groupedCategorySlugs.add(cat.slug));
 
       // Check localStorage for this section's state
       const storedState = localStorage.getItem(`sidebar-section-${i}-state`);
@@ -102,6 +108,37 @@ export default apiInitializer("1.8.0", (api) => {
       sectionHeader.appendChild(contentWrapper);
       section.appendChild(sectionHeader);
       customContainer.appendChild(section);
+    }
+
+    // Add ungrouped categories section
+    const ungroupedCategories = accessibleCategories.filter(cat => 
+      !groupedCategorySlugs.has(cat.slug) && !cat.parent_category_id
+    );
+
+    if (ungroupedCategories.length > 0) {
+      const ungroupedSection = document.createElement("div");
+      ungroupedSection.id = "ungrouped-categories-sidebar";
+      ungroupedSection.className = "sidebar-section";
+
+      const ungroupedTitle = document.createElement("div");
+      ungroupedTitle.className = "ungrouped-categories-title";
+      ungroupedTitle.textContent = "Other Categories";
+      ungroupedSection.appendChild(ungroupedTitle);
+
+      ungroupedCategories.forEach(category => {
+        const categoryLink = document.createElement("a");
+        categoryLink.href = `/c/${category.slug}/${category.id}`;
+        categoryLink.className = "sidebar-section-link sidebar-section-link-content-list";
+        
+        const linkContent = document.createElement("span");
+        linkContent.className = "sidebar-section-link-content-text";
+        linkContent.textContent = category.name;
+        
+        categoryLink.appendChild(linkContent);
+        ungroupedSection.appendChild(categoryLink);
+      });
+
+      customContainer.appendChild(ungroupedSection);
     }
 
     return customContainer;

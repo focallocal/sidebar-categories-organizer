@@ -47,25 +47,37 @@
       transform: rotate(90deg);
     }
 
-    // Section colors with gradient fade to transparent
+    // Section colors with gradient fade to transparent (solid 25%, fade 25-50%)
     .category-section-summary[data-section="1"] {
-      background: linear-gradient(to right, $section-1-bg-color 0%, transparent 25%);
-      color: $section-1-text-color;
+      background: linear-gradient(to right, $section-1-bg-color 0%, $section-1-bg-color 25%, transparent 50%);
+      
+      .category-section-title {
+        color: $section-1-text-color;
+      }
     }
     
     .category-section-summary[data-section="2"] {
-      background: linear-gradient(to right, $section-2-bg-color 0%, transparent 25%);
-      color: $section-2-text-color;
+      background: linear-gradient(to right, $section-2-bg-color 0%, $section-2-bg-color 25%, transparent 50%);
+      
+      .category-section-title {
+        color: $section-2-text-color;
+      }
     }
     
     .category-section-summary[data-section="3"] {
-      background: linear-gradient(to right, $section-3-bg-color 0%, transparent 25%);
-      color: $section-3-text-color;
+      background: linear-gradient(to right, $section-3-bg-color 0%, $section-3-bg-color 25%, transparent 50%);
+      
+      .category-section-title {
+        color: $section-3-text-color;
+      }
     }
     
     .category-section-summary[data-section="4"] {
-      background: linear-gradient(to right, $section-4-bg-color 0%, transparent 25%);
-      color: $section-4-text-color;
+      background: linear-gradient(to right, $section-4-bg-color 0%, $section-4-bg-color 25%, transparent 50%);
+      
+      .category-section-title {
+        color: $section-4-text-color;
+      }
     }
 
     .category-section-content {
@@ -102,6 +114,39 @@
 
     &:hover {
       background: var(--d-hover);
+    }
+  }
+
+  // Ungrouped categories section
+  #ungrouped-categories-sidebar {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px solid var(--primary-low);
+
+    .ungrouped-categories-title {
+      font-size: 0.9em;
+      font-weight: 600;
+      color: var(--primary-medium);
+      padding: 0.5em 1em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar-section-link {
+      display: block;
+      padding: 0.5em 0.75em;
+      margin: 0.25em 0;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+      
+      &:hover {
+        background: var(--d-hover);
+      }
+      
+      .sidebar-section-link-content-text {
+        color: var(--primary);
+      }
     }
   }
 }
