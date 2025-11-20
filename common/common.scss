@@ -3,6 +3,10 @@
 @if $enable-sidebar-organizer {
   
   #custom-categories-sidebar {
+    .custom-categories-header {
+      border-bottom: 1px solid var(--primary-low);
+    }
+
     .sidebar-section {
       margin-bottom: 1em;
     }

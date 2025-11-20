@@ -312,51 +312,39 @@ export default apiInitializer("1.8.0", (api) => {
       customView.style.display = "none";
     }
 
-    // Add toggle button if enabled
+    // Add toggle button if enabled - place it in the custom view header
     if (settings.show_toggle_button) {
       const existingToggle = document.getElementById("sidebar-categories-toggle");
       if (existingToggle) {
         existingToggle.remove();
       }
 
-      // Try multiple selectors for the categories header
-      let categoriesHeader = defaultCategoriesSection.querySelector(".sidebar-section-header");
+      // Create a header for the custom categories section
+      const customHeader = document.createElement("div");
+      customHeader.className = "custom-categories-header";
+      customHeader.style.cssText = "display: flex; align-items: center; justify-content: space-between; padding: 0.5em 1em; margin-bottom: 0.5em;";
       
-      // Fallback: create a header if it doesn't exist
-      if (!categoriesHeader) {
-        categoriesHeader = defaultCategoriesSection.querySelector(".sidebar-section-header-wrapper");
-      }
-      
-      // Last resort: add to the section itself
-      if (!categoriesHeader) {
-        const headerWrapper = document.createElement("div");
-        headerWrapper.className = "sidebar-section-header-wrapper";
-        headerWrapper.style.cssText = "display: flex; align-items: center; padding: 0.5em 1em; justify-content: space-between;";
-        
-        const titleSpan = document.createElement("span");
-        titleSpan.textContent = "Categories";
-        titleSpan.style.fontWeight = "600";
-        headerWrapper.appendChild(titleSpan);
-        
-        defaultCategoriesSection.insertBefore(headerWrapper, defaultCategoriesSection.firstChild);
-        categoriesHeader = headerWrapper;
-      }
+      const headerTitle = document.createElement("span");
+      headerTitle.textContent = "Categories";
+      headerTitle.style.cssText = "font-weight: 600; font-size: 0.9em;";
+      customHeader.appendChild(headerTitle);
 
-      if (categoriesHeader) {
-        const toggleButton = document.createElement("button");
-        toggleButton.id = "sidebar-categories-toggle";
-        toggleButton.className = "sidebar-section-header-button btn-flat";
-        toggleButton.innerHTML = "⚙️";
-        toggleButton.title = "Toggle custom/default categories view";
-        toggleButton.style.cssText = "margin-left: auto; padding: 0.25em 0.5em; background: transparent; border: none; cursor: pointer; font-size: 1.2em;";
-        toggleButton.addEventListener("click", (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          toggleView();
-        });
+      const toggleButton = document.createElement("button");
+      toggleButton.id = "sidebar-categories-toggle";
+      toggleButton.className = "btn-flat";
+      toggleButton.innerHTML = "⚙️";
+      toggleButton.title = "Switch to default categories view";
+      toggleButton.style.cssText = "padding: 0.25em 0.5em; background: transparent; border: none; cursor: pointer; font-size: 1em; opacity: 0.7; transition: opacity 0.2s;";
+      toggleButton.onmouseover = () => toggleButton.style.opacity = "1";
+      toggleButton.onmouseout = () => toggleButton.style.opacity = "0.7";
+      toggleButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleView();
+      });
 
-        categoriesHeader.appendChild(toggleButton);
-      }
+      customHeader.appendChild(toggleButton);
+      customView.insertBefore(customHeader, customView.firstChild);
     }
   }
 });
