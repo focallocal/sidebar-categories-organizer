@@ -2,8 +2,8 @@
   "name": "Sidebar Categories Organizer",
   "about_url": "https://github.com/focallocal/sidebar-categories-organizer",
   "license_url": "https://github.com/focallocal/sidebar-categories-organizer/blob/main/LICENSE",
-  "theme_version": "1.0.0",
-  "minimum_discourse_version": "3.6.0",
+  "theme_version": "1.0.1",
+  "minimum_discourse_version": "3.3.0",
   "component": true,
   "assets": {},
   "color_schemes": {}
