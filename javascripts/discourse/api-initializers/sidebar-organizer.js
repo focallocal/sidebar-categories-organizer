@@ -98,7 +98,17 @@ export default apiInitializer("1.8.0", (api) => {
         
         const linkContent = document.createElement("span");
         linkContent.className = "sidebar-section-link-content-text";
-        linkContent.textContent = category.name;
+        
+        // Add category badge if enabled
+        if (settings.show_category_badges) {
+          const badge = document.createElement("span");
+          badge.className = "category-badge";
+          badge.style.backgroundColor = `#${category.color}`;
+          linkContent.appendChild(badge);
+        }
+        
+        const categoryName = document.createTextNode(category.name);
+        linkContent.appendChild(categoryName);
         
         categoryLink.appendChild(linkContent);
         contentWrapper.appendChild(categoryLink);
@@ -132,7 +142,17 @@ export default apiInitializer("1.8.0", (api) => {
         
         const linkContent = document.createElement("span");
         linkContent.className = "sidebar-section-link-content-text";
-        linkContent.textContent = category.name;
+        
+        // Add category badge if enabled
+        if (settings.show_category_badges) {
+          const badge = document.createElement("span");
+          badge.className = "category-badge";
+          badge.style.backgroundColor = `#${category.color}`;
+          linkContent.appendChild(badge);
+        }
+        
+        const categoryName = document.createTextNode(category.name);
+        linkContent.appendChild(categoryName);
         
         categoryLink.appendChild(linkContent);
         ungroupedSection.appendChild(categoryLink);

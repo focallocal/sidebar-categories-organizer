@@ -9,6 +9,11 @@ show_toggle_button:
   type: bool
   description: "Show toggle button to switch between custom/default view"
 
+show_category_badges:
+  default: true
+  type: bool
+  description: "Show colored badges next to category names"
+
 default_view:
   default: "custom"
   type: enum

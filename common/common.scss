@@ -97,8 +97,19 @@
         
         .sidebar-section-link-content-text {
           color: var(--primary);
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
         }
       }
+    }
+    
+    .category-badge {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
     }
   }
 
@@ -146,6 +157,9 @@
       
       .sidebar-section-link-content-text {
         color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
       }
     }
   }
