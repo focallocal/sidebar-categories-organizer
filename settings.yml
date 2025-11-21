@@ -20,7 +20,7 @@ use_gradient_fade:
   description: "Use gradient fade on section headers (solid color if disabled)"
 
 categories_to_hide:
-  default: ""
+  default: "a-team, dppbuild, dppwireframe, hidden, webdevdocs, docsadminandmods, docsprojectmanagement, docsrecruitmenthr, docscommunitybuilding, docssocialmedia, docspr, docspremails, docssocialenterprise, happy-public-speaking"
   type: string
   description: "Category slugs to hide from sidebar completely (comma-separated, e.g., staff-only,archive)"
 
@@ -39,12 +39,12 @@ section_1_enabled:
   description: "Enable section 1"
 
 section_1_title:
-  default: "Primary"
+  default: "Community"
   type: string
   description: "Title for section 1"
 
 section_1_bg_color:
-  default: "#4285F4"
+  default: "#ff9c38"
   type: string
   description: "Background color for section 1"
 
@@ -54,7 +54,7 @@ section_1_text_color:
   description: "Text color for section 1"
 
 section_1_categories:
-  default: ""
+  default: "news-hub, phmgeneral, introductions, inmedia, docsusermanual, the-lounge"
   type: string
   description: "Category slugs for section 1 (comma-separated, e.g., general,support,feedback)"
 
@@ -75,12 +75,12 @@ section_2_enabled:
   description: "Enable section 2"
 
 section_2_title:
-  default: "Secondary"
+  default: "PHM Core Teams"
   type: string
   description: "Title for section 2"
 
 section_2_bg_color:
-  default: "#34A853"
+  default: "#F1592A"
   type: string
   description: "Background color for section 2"
 
@@ -90,7 +90,7 @@ section_2_text_color:
   description: "Text color for section 2"
 
 section_2_categories:
-  default: ""
+  default: "onboarding, web-developers, growing-and-supporting, spreadingthemessage, scholar, nternal-happiness-agents-engagement-recognition, money-trees, proj-management"
   type: string
   description: "Category slugs for section 2 (comma-separated)"
 
@@ -116,7 +116,7 @@ section_3_title:
   description: "Title for section 3"
 
 section_3_bg_color:
-  default: "#FBBC04"
+  default: "#3AB54A"
   type: string
   description: "Background color for section 3"
 
@@ -126,7 +126,7 @@ section_3_text_color:
   description: "Text color for section 3"
 
 section_3_categories:
-  default: ""
+  default: "raok, mass-kindness"
   type: string
   description: "Category slugs for section 3 (comma-separated)"
 
@@ -152,17 +152,17 @@ section_4_title:
   description: "Title for section 4"
 
 section_4_bg_color:
-  default: "#EA4335"
+  default: "#61f5fa"
   type: string
   description: "Background color for section 4"
 
 section_4_text_color:
-  default: "#FFFFFF"
+  default: "#000000"
   type: string
   description: "Text color for section 4"
 
 section_4_categories:
-  default: ""
+  default: "end-homelessness, climate-action, wiggles, homebase"
   type: string
   description: "Category slugs for section 4 (comma-separated)"
 
@@ -183,12 +183,12 @@ section_5_enabled:
   description: "Enable section 5"
 
 section_5_title:
-  default: "Section 5"
+  default: "Happy Uni"
   type: string
   description: "Title for section 5"
 
 section_5_bg_color:
-  default: "#9C27B0"
+  default: "#FF00CC"
   type: string
   description: "Background color for section 5"
 
@@ -198,7 +198,7 @@ section_5_text_color:
   description: "Text color for section 5"
 
 section_5_categories:
-  default: ""
+  default: "be-happier, upskill, the-challenge"
   type: string
   description: "Category slugs for section 5 (comma-separated)"
 
@@ -219,7 +219,7 @@ section_6_enabled:
   description: "Enable section 6"
 
 section_6_title:
-  default: "Section 6"
+  default: "Kinder Economies"
   type: string
   description: "Title for section 6"
 
@@ -229,12 +229,12 @@ section_6_bg_color:
   description: "Background color for section 6"
 
 section_6_text_color:
-  default: "#FFFFFF"
+  default: "#000000"
   type: string
   description: "Text color for section 6"
 
 section_6_categories:
-  default: ""
+  default: "summit, phat, brightertmrw"
   type: string
   description: "Category slugs for section 6 (comma-separated)"
 
@@ -255,7 +255,7 @@ section_7_enabled:
   description: "Enable section 7"
 
 section_7_title:
-  default: "Section 7"
+  default: "Extras"
   type: string
   description: "Title for section 7"
 
@@ -270,7 +270,7 @@ section_7_text_color:
   description: "Text color for section 7"
 
 section_7_categories:
-  default: ""
+  default: "jobs, freebies"
   type: string
   description: "Category slugs for section 7 (comma-separated)"
 
@@ -331,10 +331,10 @@ section_9_title:
   type: string
   description: "Title for section 9"
 
-section_9_bg_color:
-  default: "#FF5722"
+section_6_bg_color:
+  default: "#f4d35e"
   type: string
-  description: "Background color for section 9"
+  description: "Background color for section 6"
 
 section_9_text_color:
   default: "#FFFFFF"
