@@ -6,8 +6,8 @@ A Discourse theme component that organizes sidebar categories into customizable 
 
 - **10 Collapsible Sections**: Group categories into up to 10 custom sections
 - **Color Customization**: Set background and text colors for each section header
-- **Gradient Backgrounds**: Optional gradient fade effect (50% solid, 50% fade to transparent)
-- **Category Badges**: Optional colored squares matching category colors
+- **Gradient Backgrounds**: Optional gradient fade effect like in the photos
+- **Category Badges**: Default discourse colored badges next to categories can be toggled on and off
 - **Subcategories Support**: Per-section toggle to show/hide subcategories (indented display)
 - **Category Hiding**: Hide specific categories from all views
 - **Bidirectional Toggle**: Switch between custom sections and default Discourse view (toggle button appears in both views)
