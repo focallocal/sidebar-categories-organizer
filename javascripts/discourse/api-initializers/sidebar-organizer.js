@@ -71,6 +71,15 @@ export default apiInitializer("1.8.0", (api) => {
       const categoriesData = settings[`section_${i}_categories`];
       const defaultOpen = settings[`section_${i}_default_open`];
       
+      console.log(`Section ${i}:`, {
+        enabled,
+        title,
+        categoriesData,
+        type: typeof categoriesData,
+        isArray: Array.isArray(categoriesData),
+        isEmpty: categoriesData === "" || (Array.isArray(categoriesData) && categoriesData.length === 0)
+      });
+      
       if (!categoriesData) continue;
       if (Array.isArray(categoriesData) && categoriesData.length === 0) continue;
       if (typeof categoriesData === 'string' && categoriesData.trim() === "") continue;
@@ -79,16 +88,20 @@ export default apiInitializer("1.8.0", (api) => {
       let sectionCategories = [];
       if (Array.isArray(categoriesData)) {
         // New list format: array of category IDs
+        console.log(`Section ${i} processing as array:`, categoriesData);
         sectionCategories = categoriesData
           .map(id => accessibleCategories.find(cat => cat.id === parseInt(id)))
           .filter(Boolean);
       } else if (typeof categoriesData === 'string') {
         // Legacy string format: comma-separated slugs
+        console.log(`Section ${i} processing as string:`, categoriesData);
         const slugArray = categoriesData.split(",").map(s => s.trim()).filter(s => s !== "");
         sectionCategories = slugArray
           .map(slug => accessibleCategories.find(cat => cat.slug === slug))
           .filter(Boolean);
       }
+
+      console.log(`Section ${i} found categories:`, sectionCategories.map(c => c.name));
 
       if (sectionCategories.length === 0) continue;
 
