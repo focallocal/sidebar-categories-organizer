@@ -37,8 +37,18 @@ export default apiInitializer("1.8.0", (api) => {
           .filter(Boolean)
           .map(cat => cat.slug);
       } else if (typeof settings.categories_to_hide === 'string' && settings.categories_to_hide.trim() !== "") {
-        // Legacy string format: comma-separated slugs
-        hiddenSlugs = settings.categories_to_hide.split(",").map(s => s.trim()).filter(s => s !== "");
+        // Check if it's pipe-separated IDs (from category picker) or comma-separated slugs (legacy)
+        if (settings.categories_to_hide.includes('|')) {
+          // New picker format: pipe-separated category IDs
+          const idArray = settings.categories_to_hide.split("|").map(s => s.trim()).filter(s => s !== "");
+          hiddenSlugs = idArray
+            .map(id => allCategories.find(cat => cat.id === parseInt(id)))
+            .filter(Boolean)
+            .map(cat => cat.slug);
+        } else {
+          // Legacy format: comma-separated slugs
+          hiddenSlugs = settings.categories_to_hide.split(",").map(s => s.trim()).filter(s => s !== "");
+        }
       }
     }
     
@@ -93,12 +103,22 @@ export default apiInitializer("1.8.0", (api) => {
           .map(id => accessibleCategories.find(cat => cat.id === parseInt(id)))
           .filter(Boolean);
       } else if (typeof categoriesData === 'string') {
-        // Legacy string format: comma-separated slugs
-        console.log(`Section ${i} processing as string:`, categoriesData);
-        const slugArray = categoriesData.split(",").map(s => s.trim()).filter(s => s !== "");
-        sectionCategories = slugArray
-          .map(slug => accessibleCategories.find(cat => cat.slug === slug))
-          .filter(Boolean);
+        // Check if it's pipe-separated IDs (from category picker) or comma-separated slugs (legacy)
+        if (categoriesData.includes('|')) {
+          // New picker format: pipe-separated category IDs
+          console.log(`Section ${i} processing as pipe-separated IDs:`, categoriesData);
+          const idArray = categoriesData.split("|").map(s => s.trim()).filter(s => s !== "");
+          sectionCategories = idArray
+            .map(id => accessibleCategories.find(cat => cat.id === parseInt(id)))
+            .filter(Boolean);
+        } else {
+          // Legacy string format: comma-separated slugs
+          console.log(`Section ${i} processing as comma-separated slugs:`, categoriesData);
+          const slugArray = categoriesData.split(",").map(s => s.trim()).filter(s => s !== "");
+          sectionCategories = slugArray
+            .map(slug => accessibleCategories.find(cat => cat.slug === slug))
+            .filter(Boolean);
+        }
       }
 
       console.log(`Section ${i} found categories:`, sectionCategories.map(c => c.name));
