@@ -34,6 +34,7 @@ A Discourse theme component that organizes sidebar categories into customizable 
 - **Use Gradient Fade**: Enable gradient background effect on section headers (50% solid color, 50% fade to transparent)
 - **Categories to Hide**: Comma-separated category slugs to hide from all views (e.g., `staff,private`)
 - **Default View**: Choose which view loads by default (custom or default)
+- **Other Categories Label**: Customize the label for ungrouped categories (default: "Other Categories")
 
 ### Section Settings (1-10)
 
@@ -63,7 +64,7 @@ Once installed and configured:
    - In default view: Toggle button appears in the default "Categories" header
 4. **Subcategories**: When enabled per section, subcategories appear indented below parent categories
 5. **Category Badges**: Small colored squares (if enabled) show each category's color
-6. **Ungrouped Categories**: Any categories not assigned to sections appear in "Other Categories"
+6. **Ungrouped Categories**: Any categories not assigned to sections appear in a separate section (label customizable via settings)
 7. **Preferences**: Your view choice and open/closed state are saved per browser
 
 ## Advanced Features

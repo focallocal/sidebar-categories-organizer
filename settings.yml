@@ -33,6 +33,11 @@ default_view:
     - default
   description: "Which view to show by default (custom sections or default categories list)"
 
+other_categories_label:
+  default: "Other Categories"
+  type: string
+  description: "Label for the section containing categories not assigned to any group"
+
 # Section 1
 section_1_enabled:
   default: true
