@@ -36,7 +36,7 @@ default_view:
 other_categories_label:
   default: "Other Categories"
   type: string
-  description: "Label for the section containing categories not assigned to any group"
+  description: "Label for the section containing categories not assigned to any other section"
 
 # Section 1
 section_1_enabled:
