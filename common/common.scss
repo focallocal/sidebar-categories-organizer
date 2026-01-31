@@ -302,6 +302,13 @@
     padding-top: 1em;
     border-top: 1px solid var(--primary-low);
 
+    // Remove border when ungrouped is the only section (no custom sections above)
+    &:first-child {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
     .ungrouped-categories-title {
       font-size: 0.9em;
       font-weight: 600;
@@ -336,5 +343,11 @@
         opacity: 0.9;
       }
     }
+  }
+
+  // Remove border when immediately after the header (no sections between)
+  .custom-categories-header + #ungrouped-categories-sidebar {
+    border-top: none;
+    margin-top: 0;
   }
 }

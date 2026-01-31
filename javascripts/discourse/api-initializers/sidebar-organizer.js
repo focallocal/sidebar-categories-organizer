@@ -233,7 +233,7 @@ export default apiInitializer("1.8.0", (api) => {
 
       const ungroupedTitle = document.createElement("div");
       ungroupedTitle.className = "ungrouped-categories-title";
-      ungroupedTitle.textContent = "Other Categories";
+      ungroupedTitle.textContent = settings.other_categories_label || "Other Categories";
       ungroupedSection.appendChild(ungroupedTitle);
 
       ungroupedCategories.forEach(category => {
